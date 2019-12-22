@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1576806996 source:c:\users\ahmed  pc\documents\term 3\programingi\projects\pb\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1576804400 source:c:\users\ahmed  pc\documents\term 3\programingi\projects\pb\funcs.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
