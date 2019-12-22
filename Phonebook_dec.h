@@ -13,15 +13,16 @@ typedef struct contact{
  char phone_number[max_size];
 }contact;
 //Some declarations
-contact contacts[1000];
+contact contacts[max_size];
 contact *ptr[max_size];
 char key[max_size];
 int count=0;int a=0;
 contact *ptr2[max_size];
 //Functions declarations
 void load();
-int query(contact arr[],char*,int);
+void query();
 void add_new_contact();
+int validnumber(char*);
 void deleterec();
 void modify();
 void sort_lastName(contact arr[],int);
