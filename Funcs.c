@@ -203,7 +203,7 @@ void sort_lastName(contact arr[], int n)
 void save()
 {
     FILE *fp;
-    fp = fopen("Contacts.txt","w");
+    fp = fopen("phonebook.txt","w");
     for(int k =0;k<count;k++)
     {
         fprintf(fp,"%s,%s,%d/%d/%d,%s,%s,%s\n",contacts[k].last_name,contacts[k].first_name,contacts[k].day_of_birth,\
