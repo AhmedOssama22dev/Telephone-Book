@@ -7,13 +7,13 @@
 /*Main program functions*/
 //1) Load function /*Load contacts from .txt file*/
 void load(){
-FILE *fp;   fp=fopen("contacts.txt","r");
+FILE *fp;   fp=fopen("phonebook.txt","r");
 if (fp != NULL)
 {
   printf("contacts have been loaded\n\n\n");
   while(!feof(fp))
   {
-    fscanf(fp,"%[^,],%[^,],%d/%d/%d,%[^,],%[^,],%s",contacts[count].last_name,\
+     fscanf(fp,"%[^,],%[^,],%d-%d-%d,%[^,],%[^,],%s",contacts[count].last_name,\
     contacts[count].first_name,&contacts[count].day_of_birth,&contacts[count].month_of_birth,\
     &contacts[count].year_of_birth,contacts[count].street_address,contacts[count].email,contacts[count].phone_number);
     count++;
@@ -26,74 +26,54 @@ else
     }
 fclose(fp);
 }
+void query()
+{
+    //Search by last name only :
+    char last[max_size];
+    int found=0;
+    int i;
+    int k;
+    int n=1;
+    char mod[max_size];
+    printf("Enter contact's last name:\n");
+    scanf("%s", last);
+    for(i=0;i<count;i++){
+    if(strcasecmp(contacts[i].last_name,last)==0){
+        n++;
+    found=1;
+               printf("Contact number : %d\nLast name:%s\nFirst name:%s\nDate of birth:%d/%d/%d\nE-mail:%s\nStreet Address:%s\nMobile:%s",i+1,contacts[i].last_name,contacts[i].first_name,contacts[i].day_of_birth,contacts[i].month_of_birth,contacts[i].year_of_birth,contacts[i].email,contacts[i].street_address,contacts[i].phone_number);
 
-//2) Query function , search by all fields
-int query(contact array[] , char* Word , int len){
-        int choice;
-        printf("Choose : \n1-Search by last name\n2-Search by first name\n3-search by number\n4-Search by email\n");
-        scanf("%d",&choice);
-        switch(choice)
-        {
-        case 1:
-            printf("Enter Last name:\n");
-        scanf("%s",Word);
-  for(int i=0; i < len; i++){
-    if(array[i].last_name == NULL)
-        printf("Not found\n");
-    if(strcmp(array[i].last_name , Word)==0){
-            printf("Contact is found\n");
-            printf("Contact number : %d\nLast name:%s\nFirst name:%s\nDate of birth:%d/%d/%d\nE-mail:%s\nStreet Address:%s\nMobile:%s",i+1,array[i].last_name,array[i].first_name,array[i].day_of_birth,array[i].month_of_birth,array[i].year_of_birth,array[i].email,array[i].street_address,array[i].phone_number);
+
+               }
     }
-        else{printf("Contact not found\n");break;}
+    if(found){printf("Found\n");}else{printf("Not found");}
 
-  }
-  break;
-
-        case 2:
-        printf("Enter first name:\n");
-        scanf("%s",Word);
-  for(int i=0; i < len; i++){
-    if(array[i].first_name == NULL)
-        printf("Not found\n");
-    if(strcmp(array[i].first_name , Word)==0){
-            printf("Contact is found\n");
-            printf("Contact number : %d\nLast name:%s\nFirst name:%s\nDate of birth:%d/%d/%d\nE-mail:%s\nStreet Address:%s\nMobile:%s",i+1,array[i].last_name,array[i].first_name,array[i].day_of_birth,array[i].month_of_birth,array[i].year_of_birth,array[i].email,array[i].street_address,array[i].phone_number);
-    }
-        else{printf("Contact not found\n");break;}
-
-  }
-  break;
-
-        case 3:
-        printf("Enter Mobile number:\n");
-        scanf("%s",Word);
-  for(int i=0; i < len; i++){
-    if(array[i].phone_number == NULL)
-        printf("Not found\n");
-    if(strcmp(array[i].phone_number , Word)==0){
-            printf("Contact is found\n");
-            printf("Contact number : %d\nLast name:%s\nFirst name:%s\nDate of birth:%d/%d/%d\nE-mail:%s\nStreet Address:%s\nMobile:%s",i+1,array[i].last_name,array[i].first_name,array[i].day_of_birth,array[i].month_of_birth,array[i].year_of_birth,array[i].email,array[i].street_address,array[i].phone_number);
-    }
-    else{printf("Contact not found\n");break;}
-  }
-  break;
-        case 4:
-        printf("Enter E-mail number:\n");
-        scanf("%s",Word);
-  for(int i=0; i < len; i++){
-    if(array[i].email == NULL)
-        printf("Not found\n");
-    if(strcmp(array[i].email , Word)==0){
-            printf("Contact is found\n");
-            printf("Contact number : %d\nLast name:%s\nFirst name:%s\nDate of birth:%d/%d/%d\nE-mail:%s\nStreet Address:%s\nMobile:%s",i+1,array[i].last_name,array[i].first_name,array[i].day_of_birth,array[i].month_of_birth,array[i].year_of_birth,array[i].email,array[i].street_address,array[i].phone_number);
-    }
-    else{printf("Contact not found\n");break;}
-  }
-  break;
-        }
 
 }
+//Multi search:
+void multi_query()
+{
+    char last[max_size]; char first[max_size];
+    int found=0;
+    int i;
+    int k;
+    int n=1;
+    char mod[max_size];
+    printf("Enter contact's last name:\n");
+    scanf("%s", last);
+    printf("Enter contact's last name:\n");
+    scanf("%s", first);
+    for(i=0;i<count;i++){
+    if(strcasecmp(contacts[i].last_name,last)==0&&strcasecmp(contacts[i].first_name,first)==0){
+        n++;
+    found=1;
+               printf("Contact number : %d\nLast name:%s\nFirst name:%s\nDate of birth:%d/%d/%d\nE-mail:%s\nStreet Address:%s\nMobile:%s\n",i+1,contacts[i].last_name,contacts[i].first_name,contacts[i].day_of_birth,contacts[i].month_of_birth,contacts[i].year_of_birth,contacts[i].email,contacts[i].street_address,contacts[i].phone_number);
 
+
+               }
+    }
+    if(found){printf("Contact Found\n");}else{printf("Contact not  found\n");}
+}
 //3)Adding new contact
 void add_new_contact(){
 printf("please enter last name:");
@@ -164,7 +144,7 @@ void modify(){
     int found=0;
     int i;
     int k;
-    int n=0;
+    int n=1;
     char mod[max_size];
     printf("Enter contact's last name:");
     scanf("%s", last);
@@ -172,12 +152,12 @@ void modify(){
     if(strcasecmp(contacts[i].last_name,last)==0){
         n++;
     found=1;
-            printf("\n(%d)\n%s,%s,%d/%d/%d,%s,%s,%s\n",n,contacts[i].last_name,contacts[i].first_name,contacts[i].day_of_birth,
+            printf("\n(Contact index:%d)\n%s,%s,%d/%d/%d,%s,%s,%s\n",n-1,contacts[i].last_name,contacts[i].first_name,contacts[i].day_of_birth,
                contacts[i].month_of_birth,contacts[i].year_of_birth,contacts[i].street_address,
                contacts[i].email,contacts[i].phone_number);}
     }
     if(found){
-    printf("Enter number of the contact you want to modify:");
+    printf("Enter the index of the contact you want to modify:");
     scanf("%d", &k);
 printf("Enter last name:");
 scanf("%s",contacts[k].last_name);
@@ -248,7 +228,7 @@ void main_menu()
     {
 
         load();
-        int final_choice;
+        int final_choice,sub_choice;
         while(1)
         {
             printf("\t\t\tWelcome to your PhoneBook\n\nPlease make a choice :) :\n=================\n\n");
@@ -257,7 +237,10 @@ void main_menu()
 
              if(final_choice==1)
         {
-        query(contacts,key,count);
+            printf("Please choose an option:\n1)Multi search\n2)Search by last name only");scanf("%d\n",&sub_choice);
+            switch(sub_choice){
+            case (1):multi_query();break;
+            case (2):query();break;}
         printf("Press any key to continue........\n");
         getch(); //for windows users ,getchar() for smth called  windows turbo C...
         }
