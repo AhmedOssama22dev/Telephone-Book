@@ -76,21 +76,21 @@ void multi_query()
 }
 //3)Adding new contact
 void add_new_contact(){
-printf("please enter last name:");
+printf("Please enter last name:");
 scanf("%s",contacts[count].last_name);
-printf("please enter first name:");
+printf("Please enter first name:");
 scanf("%s",contacts[count].first_name);
-printf("please enter day of birth:");
+printf("Please enter day of birth:");
 scanf("%d",&contacts[count].day_of_birth);
-printf("please enter month of birth:");
+printf("Please enter month of birth:");
 scanf("%d",&contacts[count].month_of_birth);
-printf("please enter year of birth:");
+printf("Please enter year of birth:");
 scanf("%d",&contacts[count].year_of_birth);
-printf("please enter street address:");
+printf("Please enter street address:");
 scanf("%s",contacts[count].street_address);
-printf("please enter email:");
+printf("Please enter email:");
 scanf("%s",contacts[count].email);
-printf("please phone number:");
+printf("Please phone number:");
 scanf("%s",contacts[count].phone_number);
 count++;
 printf("Contact had been added successfully.\n\n");
@@ -110,16 +110,15 @@ int found=0;
 for(i=0;i<count;i++){
         if(strcasecmp(last,contacts[i].last_name)==0&&strcasecmp(first,contacts[i].first_name)==0){
             found=1;
-            printf("\n(%d)\n%s,%s,%d/%d/%d,%s,%s,%s\n",i+1,contacts[i].last_name,contacts[i].first_name,contacts[i].day_of_birth,
-               contacts[i].month_of_birth,contacts[i].year_of_birth,contacts[i].street_address,
-               contacts[i].email,contacts[i].phone_number);
+            printf("\n(%d)\nLast name:%s\nFirst name:%s\nDate of birth:%d/%d/%d\nE-mail:%s\nStreet Address:%s\nMobile:%s",i,contacts[i].last_name,contacts[i].first_name,contacts[i].day_of_birth,contacts[i].month_of_birth,
+                   contacts[i].year_of_birth,contacts[i].email,contacts[i].street_address,contacts[i].phone_number);
 
                 }
 
             }
-if(!found) printf("Contact is not found");
+if(!found) printf("\nContact is not found");
 if (found){
-        printf("Enter number of contact you want to delete:");
+        printf("\nEnter number of contact you want to delete:");
         scanf("%d", &k);
         for(int j=0;j<count;j++)
         {
@@ -135,7 +134,13 @@ if (found){
         count-=1;
 
 
-                    printf("Contact was successfully deleted.");
+                    printf("\nContact was successfully deleted.");
+}
+
+for(i=0;i<count;i++){
+            printf("After Deletion:\n(%d)\n%s,%s,%d/%d/%d,%s,%s,%s\n",i,contacts[i].last_name,contacts[i].first_name,contacts[i].day_of_birth,
+               contacts[i].month_of_birth,contacts[i].year_of_birth,contacts[i].street_address,
+               contacts[i].email,contacts[i].phone_number);}
 }
 }
 //5)Modify a certain contact
@@ -144,40 +149,64 @@ void modify(){
     int found=0;
     int i;
     int k;
-    int n=1;
-    char mod[max_size];
+    int m;
     printf("Enter contact's last name:");
     scanf("%s", last);
     for(i=0;i<count;i++){
     if(strcasecmp(contacts[i].last_name,last)==0){
-        n++;
     found=1;
-            printf("\n(Contact index:%d)\n%s,%s,%d/%d/%d,%s,%s,%s\n",n-1,contacts[i].last_name,contacts[i].first_name,contacts[i].day_of_birth,
-               contacts[i].month_of_birth,contacts[i].year_of_birth,contacts[i].street_address,
-               contacts[i].email,contacts[i].phone_number);}
+            printf("\n(%d)\nLast name:%s\nFirst name:%s\nDate of birth:%d/%d/%d\nE-mail:%s\nStreet Address:%s\nMobile:%s",i,contacts[i].last_name,contacts[i].first_name,contacts[i].day_of_birth,contacts[i].month_of_birth,
+                   contacts[i].year_of_birth,contacts[i].email,contacts[i].street_address,contacts[i].phone_number);
+
+                }
     }
     if(found){
-    printf("Enter the index of the contact you want to modify:");
+    printf("\nEnter the index of the contact you want to modify:");
     scanf("%d", &k);
-printf("Enter last name:");
+    printf("\nChoose the field of modification:\n1-Last name\n2-First name\n3-Date of birth\n4-Address\n5-Email\n6-Mobile\n");
+    scanf("%d", &m);
+    switch(m)
+    {
+    case 1:
+        printf("\nEnter last name:");
 scanf("%s",contacts[k].last_name);
-printf("Enter first name:");
+break;
+
+case 2:
+    printf("\nEnter first name:");
 scanf("%s",contacts[k].first_name);
-printf("Enter day of birth:");
+break;
+
+case 3:
+    printf("\nEnter day of birth:");
 scanf("%d",&contacts[k].day_of_birth);
-printf("Enter month of birth:");
+printf("\nEnter month of birth:");
 scanf("%d",&contacts[k].month_of_birth);
-printf("Enter year of birth:");
+printf("\nEnter year of birth:");
 scanf("%d",&contacts[k].year_of_birth);
-printf("Enter street address:");
+break;
+
+case 4:
+    printf("\nEnter street address:");
 scanf("%s",contacts[k].street_address);
-printf("Enter email:");
+break;
+
+case 5:
+
+printf("\nEnter email:");
 scanf("%s",contacts[k].email);
-printf("Enter phone number:");
+break;
+
+case 6:
+    printf("\nEnter phone number:");
 scanf("%s",contacts[k].phone_number);
-    printf("The contact is modified.\n\n");}
-    else printf("Contact is not found.");
+break;
+
+
     }
+      printf("\nThe contact is modified.\n");}
+    else printf("\nContact is not found.");
+}
 //6)sorting (bubble sort used)
 void sort_lastName(contact arr[], int n)
 {
