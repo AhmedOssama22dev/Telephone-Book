@@ -26,6 +26,7 @@ int validnumber(char*);
 void deleterec();
 void modify();
 void sort_lastName(contact arr[],int);
+void sort_date_OF_birth(contact arr[], int);
 void save();
 void print_contacts();
 void main_menu();
