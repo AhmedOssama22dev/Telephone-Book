@@ -205,26 +205,174 @@ break;
       printf("\nThe contact is modified.\n");}
     else printf("\nContact is not found.");
 }
-//6)sorting (bubble sort used)
+//6)sorting by last name (bubble sort used)
 void sort_lastName(contact arr[], int n)
 {
     char temp[max_size];
 
     // Sorting strings using bubble sort
-    for (int j=0; j<n-1; j++)
+ for (int j=0; j<n-1; j++)
     {
         for (int i=j+1; i<n; i++)
         {
             if (strcmp(arr[j].last_name, arr[i].last_name) > 0)
             {
-                strcpy(temp, arr[j].last_name);
+
+            strcpy(temp, arr[j].last_name);
                 strcpy(arr[j].last_name, arr[i].last_name);
                 strcpy(arr[i].last_name, temp);
+                //Replacing first names
+                strcpy(temp, arr[j].first_name);
+                strcpy(arr[j].first_name, arr[i].first_name);
+                strcpy(arr[i].first_name, temp);
+                //Replacing Street address
+                strcpy(temp, arr[j].street_address);
+                strcpy(arr[j].street_address, arr[i].street_address);
+                strcpy(arr[i].street_address, temp);
+                //Replacing Email
+                strcpy(temp, arr[j].email);
+                strcpy(arr[j].email, arr[i].email);
+                strcpy(arr[i].email, temp);
+                //Replacing phone number
+                strcpy(temp, arr[j].phone_number);
+                strcpy(arr[j].phone_number, arr[i].phone_number);
+                strcpy(arr[i].phone_number, temp);
+                //Replacing DOB
+                    //Day
+                temp_DOB = arr[j].day_of_birth;
+                arr[j].day_of_birth=arr[i].day_of_birth;
+                arr[i].day_of_birth = temp_DOB;
+                    //Month
+                temp_DOB = arr[j].month_of_birth;
+                arr[j].month_of_birth=arr[i].month_of_birth;
+                arr[i].month_of_birth = temp_DOB;
+                    //Year
+                temp_DOB = arr[j].year_of_birth;
+                arr[j].year_of_birth=arr[i].year_of_birth;
+                arr[i].year_of_birth = temp_DOB;
             }
         }
     }
                     printf("Contacts successfully sorted according to the last name.\n\n");
 
+}
+//Sort by date of birth acsendingly
+void sort_date_OF_birth(contact arr[], int n)
+{
+    char temp2[max_size];int temp2_DOB;
+
+    for (int j=0; j<n-1; j++)
+    {
+        for (int i=j+1; i<n; i++)
+        {
+            if (arr[i].year_of_birth>arr[j].year_of_birth)
+            {
+                strcpy(temp2, arr[j].last_name);
+                strcpy(arr[j].last_name, arr[i].last_name);
+                strcpy(arr[i].last_name, temp2);
+                //Replacing first names
+                strcpy(temp2, arr[j].first_name);
+                strcpy(arr[j].first_name, arr[i].first_name);
+                strcpy(arr[i].first_name, temp2);
+                //Replacing Street address
+                strcpy(temp2, arr[j].street_address);
+                strcpy(arr[j].street_address, arr[i].street_address);
+                strcpy(arr[i].street_address, temp2);
+                //Replacing Email
+                strcpy(temp2, arr[j].email);
+                strcpy(arr[j].email, arr[i].email);
+                strcpy(arr[i].email, temp2);
+                //Replacing phone number
+                strcpy(temp2, arr[j].phone_number);
+                strcpy(arr[j].phone_number, arr[i].phone_number);
+                strcpy(arr[i].phone_number, temp2);
+                //Replacing DOB
+                    //Day
+                temp2_DOB = arr[j].day_of_birth;
+                arr[j].day_of_birth=arr[i].day_of_birth;
+                arr[i].day_of_birth = temp2_DOB;
+                    //Month
+                temp2_DOB = arr[j].month_of_birth;
+                arr[j].month_of_birth=arr[i].month_of_birth;
+                arr[i].month_of_birth = temp2_DOB;
+                    //Year
+                temp2_DOB = arr[j].year_of_birth;
+                arr[j].year_of_birth=arr[i].year_of_birth;
+                arr[i].year_of_birth = temp2_DOB;
+            }
+            if(arr[i].year_of_birth==arr[j].year_of_birth&&arr[i].month_of_birth>arr[i].month_of_birth)
+            {
+                strcpy(temp2, arr[j].last_name);
+                strcpy(arr[j].last_name, arr[i].last_name);
+                strcpy(arr[i].last_name, temp2);
+                //Replacing first names
+                strcpy(temp2, arr[j].first_name);
+                strcpy(arr[j].first_name, arr[i].first_name);
+                strcpy(arr[i].first_name, temp2);
+                //Replacing Street address
+                strcpy(temp2, arr[j].street_address);
+                strcpy(arr[j].street_address, arr[i].street_address);
+                strcpy(arr[i].street_address, temp2);
+                //Replacing Email
+                strcpy(temp2, arr[j].email);
+                strcpy(arr[j].email, arr[i].email);
+                strcpy(arr[i].email, temp2);
+                //Replacing phone number
+                strcpy(temp2, arr[j].phone_number);
+                strcpy(arr[j].phone_number, arr[i].phone_number);
+                strcpy(arr[i].phone_number, temp2);
+                //Replacing DOB
+                    //Day
+                temp2_DOB = arr[j].day_of_birth;
+                arr[j].day_of_birth=arr[i].day_of_birth;
+                arr[i].day_of_birth = temp2_DOB;
+                    //Month
+                temp2_DOB = arr[j].month_of_birth;
+                arr[j].month_of_birth=arr[i].month_of_birth;
+                arr[i].month_of_birth = temp2_DOB;
+                    //Year
+                temp2_DOB = arr[j].year_of_birth;
+                arr[j].year_of_birth=arr[i].year_of_birth;
+                arr[i].year_of_birth = temp2_DOB;
+            }
+            if(arr[i].year_of_birth==arr[j].year_of_birth&&arr[i].month_of_birth==arr[i].month_of_birth&&arr[i].day_of_birth>arr[j].day_of_birth)
+            {
+                strcpy(temp2, arr[j].last_name);
+                strcpy(arr[j].last_name, arr[i].last_name);
+                strcpy(arr[i].last_name, temp2);
+                //Replacing first names
+                strcpy(temp2, arr[j].first_name);
+                strcpy(arr[j].first_name, arr[i].first_name);
+                strcpy(arr[i].first_name, temp2);
+                //Replacing Street address
+                strcpy(temp2, arr[j].street_address);
+                strcpy(arr[j].street_address, arr[i].street_address);
+                strcpy(arr[i].street_address, temp2);
+                //Replacing Email
+                strcpy(temp2, arr[j].email);
+                strcpy(arr[j].email, arr[i].email);
+                strcpy(arr[i].email, temp2);
+                //Replacing phone number
+                strcpy(temp2, arr[j].phone_number);
+                strcpy(arr[j].phone_number, arr[i].phone_number);
+                strcpy(arr[i].phone_number, temp2);
+                //Replacing DOB
+                    //Day
+                temp2_DOB = arr[j].day_of_birth;
+                arr[j].day_of_birth=arr[i].day_of_birth;
+                arr[i].day_of_birth = temp2_DOB;
+                    //Month
+                temp2_DOB = arr[j].month_of_birth;
+                arr[j].month_of_birth=arr[i].month_of_birth;
+                arr[i].month_of_birth = temp2_DOB;
+                    //Year
+                temp2_DOB = arr[j].year_of_birth;
+                arr[j].year_of_birth=arr[i].year_of_birth;
+                arr[i].year_of_birth = temp2_DOB;
+            }
+        }
+    }
+                    printf("\nContacts successfully sorted according to the date of birth in ascending order.\n\n");
 }
 //7)Save function
 void save()
@@ -259,7 +407,7 @@ void main_menu()
         while(1)
         {
             printf("\t\t\tWelcome to your PhoneBook\n\nPlease make a choice :) :\n=================\n\n");
-        printf("1) Search for a contact\n2)Add new contact\n3)Delete contact\n4)Modify contact\n5)Save changes\n6)sort contacts\n7)Display all contact\n8)Exit program\n\n");
+        printf("1) Search for a contact\n2)Add new contact\n3)Delete contact\n4)Modify contact\n5)Save changes\n6)sort contacts by last name\n7)Sort by date of birth\n8)Display all contact\n9)Exit program\n\n");
         printf("Enter your choice:\n");scanf("%d",&final_choice);if (final_choice >= 0x41 && final_choice <= 0x7A) {printf("you entered a letter");scanf("%d",&final_choice);}
 
              if(final_choice==1)
@@ -297,22 +445,27 @@ void main_menu()
              printf("Press any key to continue........\n");
              getch();
         }
-        else if(final_choice==6)
+         else if(final_choice==6)
         {
-            //sort(contacts,count);
             sort_lastName(contacts,count);
+            printf("Press any key to continue........\n");
+            getch();
         }
-
         else if(final_choice==7)
         {
-            print_contacts();
+            sort_date_OF_birth(contacts,count);
             printf("Press any key to continue........\n");
             getch();
         }
         else if(final_choice==8)
         {
+            print_contacts();
+            printf("Press any key to continue........\n");
+            getch();
+        }
+        else if(final_choice==9)
+        {
             break;
         }
-
     }
         }
