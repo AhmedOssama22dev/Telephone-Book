@@ -34,7 +34,6 @@ void query()
     int i;
     int k;
     int n=1;
-    char mod[max_size];
     printf("Enter contact's last name:\n");
     scanf("%s", last);
     for(i=0;i<count;i++){
@@ -58,10 +57,9 @@ void multi_query()
     int i;
     int k;
     int n=1;
-    char mod[max_size];
     printf("Enter contact's last name:\n");
     scanf("%s", last);
-    printf("Enter contact's last name:\n");
+    printf("Enter contact's first name:\n");
     scanf("%s", first);
     for(i=0;i<count;i++){
     if(strcasecmp(contacts[i].last_name,last)==0&&strcasecmp(contacts[i].first_name,first)==0){
