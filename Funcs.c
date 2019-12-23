@@ -209,7 +209,7 @@ break;
 void sort_lastName(contact arr[], int n)
 {
     char temp[max_size];
-
+    int temp_DOB;
     // Sorting strings using bubble sort
  for (int j=0; j<n-1; j++)
     {
