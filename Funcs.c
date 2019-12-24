@@ -133,12 +133,7 @@ if (found){
 
 
                     printf("\nContact was successfully deleted.");
-}
 
-for(i=0;i<count;i++){
-            printf("After Deletion:\n(%d)\n%s,%s,%d/%d/%d,%s,%s,%s\n",i,contacts[i].last_name,contacts[i].first_name,contacts[i].day_of_birth,
-               contacts[i].month_of_birth,contacts[i].year_of_birth,contacts[i].street_address,
-               contacts[i].email,contacts[i].phone_number);}
 }
 }
 //5)Modify a certain contact
